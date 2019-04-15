@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: azure
+  jpa:
+    hibernate:
+      ddlAuto: none
+  liquibase:
+    changeLog: classpath:db/changelog.yml
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:database;MODE=PostgreSQL
+    username: sa
+    password:
+management:
+  endpoints:
+    web:
+      base-path: /management
+swagger:
+  title: API
+  description: API to read and write
+  include: /api/.*

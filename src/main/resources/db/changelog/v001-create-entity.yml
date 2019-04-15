@@ -1,0 +1,30 @@
+databaseChangeLog:
+- changeSet:
+    id: create-entity
+    author: jhagestedt
+    changes:
+    - createTable:
+        tableName: entity
+        columns:
+        - column:
+            name: id
+            type: bigint
+            constraints:
+              unique: true
+              nullable: false
+              primaryKey: true
+        - column:
+            name: value
+            type: varchar(255)
+            constraints:
+              nullable: false
+- changeSet:
+    id: create-entity-increment
+    author: jhagestedt
+    changes:
+    - addAutoIncrement:
+        tableName: entity
+        columnName: id
+        columnDataType: bigint
+        startWith: 1
+        incrementBy: 1
